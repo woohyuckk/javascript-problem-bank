@@ -8,6 +8,8 @@
 
 function reassignConst() {
   // TODO
+  const keyword = "123";
+  keyword = "1a2a3a";
 }
 
 // export 를 수정하지 마세요.

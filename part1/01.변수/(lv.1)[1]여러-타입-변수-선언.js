@@ -12,12 +12,19 @@
  */
 
 let num;
+num = 100;
 let str;
+str = "Hello"
 let bool;
+bool = true;
 let arr;
+arr = [1,2,3];
 let obj;
+obj = {name : "JS"}
 let undef;
+undef = undefined;
 let nul;
+nul = null;
 
 // export 를 수정하지 마세요.
 export { num, str, bool, arr, obj, undef, nul };

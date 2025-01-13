@@ -11,7 +11,9 @@
 let num = 0;
 
 let postIncrement; // 후위 증가 연산
+postIncrement = num++
 let preIncrement; // 전위 증가 연산
+preIncrement = ++num
 
 // TODO: num에 대한 후위, 전위 연산을 각각 수행하고 결과를 postIncrement와 preIncrement에 할당하세요.
 

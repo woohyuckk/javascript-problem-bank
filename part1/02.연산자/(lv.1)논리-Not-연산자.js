@@ -12,6 +12,7 @@
 let isActive = true;
 
 let toggled;
+toggled = !isActive;
 
 // TODO: 논리 NOT 연산자를 사용해 isActive 값을 반전하고 toggled에 할당하세요.
 
