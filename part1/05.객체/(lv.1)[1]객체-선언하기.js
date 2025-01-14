@@ -6,6 +6,8 @@
  * @returns {{ name: string, age: number }}
  */
 const person = {
+  name : "Alice",
+  age : 25
   // TODO: name, age 프로퍼티를 각각 "Alice", 25로 설정하세요.
 };
 

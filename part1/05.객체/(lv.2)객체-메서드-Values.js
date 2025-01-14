@@ -10,6 +10,7 @@
  * @returns {string[]}
  */
 function getObjectValues(obj) {
+  return Object.values(obj)
   // TODO
 }
 

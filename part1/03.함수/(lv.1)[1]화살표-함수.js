@@ -10,6 +10,7 @@
  */
 
 const multiplyByTwo = (x) => {
+  return x*2;
   // TODO: 숫자 x 를 받아 2배로 곱한 값을 반환
 };
 

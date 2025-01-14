@@ -9,7 +9,8 @@
  * @returns {string}
  */
 
-function introduce(name, age) {
+function introduce(name, age="비공개") {
+return `안녕하세요! 저는 ${name}, 나이는 ${age}입니다.`
   // TODO
 }
 
