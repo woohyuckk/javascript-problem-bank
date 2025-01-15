@@ -15,6 +15,8 @@
  * @returns {any[]} 조작 후의 arr
  */
 function removeAndInsert(arr, start, deleteCount, ...items) {
+  arr.splice(start,deleteCount,...items)
+  return arr
   // TODO
 }
 

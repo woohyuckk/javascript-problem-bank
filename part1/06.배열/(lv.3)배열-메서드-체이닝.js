@@ -15,6 +15,8 @@
  */
 
 function get20sEmail(arr) {
+  return arr.filter(person => [person.age] >=20 && [person.age]<30)
+  .map(e => [e.email])
   // TODO: 배열 메서드 체이닝을 사용해 20대 사람의 email 배열을 반환하세요.
 }
 

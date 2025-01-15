@@ -8,7 +8,8 @@
  * @returns {number[]} 각 원소를 제곱한 결과로 구성된 새 배열
  */
 
-function squareElements() {
+function squareElements(arr) {
+  return arr.map(e => e**2)
   // TODO
 }
 

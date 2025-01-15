@@ -13,6 +13,7 @@
  * @returns {any[]} 잘려진 새 배열
  */
 function subArray(arr, start, end) {
+  return end !== undefined ? arr.slice(start, end) : arr.slice(start);
   // TODO
 }
 

@@ -8,6 +8,12 @@
  * @returns {any[]} 요소가 오른쪽으로 한 칸씩 이동된 새 배열
  */
 function rotateArray(arr) {
+  if (arr.length > 0) {
+    let lastElement = arr.pop();
+    arr.unshift(lastElement);
+    return arr
+  }
+  return arr;
   // TODO: 원본을 변경하지 않고, 마지막 요소를 맨 앞으로 이동한 새 배열을 반환
 }
 
