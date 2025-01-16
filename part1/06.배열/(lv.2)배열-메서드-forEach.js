@@ -14,7 +14,7 @@ function sumArray(arr) {
   if (arr.length === 0){
     return 0
   }
-  const result= arr.forEach(element => { sum +=element})
+  const result= arr.forEach(element => {sum +=element})
   return sum;
     
   };

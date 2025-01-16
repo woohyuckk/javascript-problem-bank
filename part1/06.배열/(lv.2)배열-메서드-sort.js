@@ -9,8 +9,8 @@
  * @returns {number[]} 오름차순 정렬된 새 배열
  */
 function sortNumbers(arr) {
-  arr.sort((a, b) => a - b);
-  return arr
+  return [...arr].sort((a, b) => a - b);
+
   // TODO
 }
 

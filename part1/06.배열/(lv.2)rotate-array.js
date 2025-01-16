@@ -9,9 +9,14 @@
  */
 function rotateArray(arr) {
   if (arr.length > 0) {
-    let lastElement = arr.pop();
-    arr.unshift(lastElement);
-    return arr
+    // let lastElement = arr.pop();
+    // arr.unshift(lastElement);
+    // arr.unshift(arr.pop());
+
+    let newarr =[...arr];
+    newarr.unshift(newarr.pop());
+
+    return newarr;
   }
   return arr;
   // TODO: 원본을 변경하지 않고, 마지막 요소를 맨 앞으로 이동한 새 배열을 반환

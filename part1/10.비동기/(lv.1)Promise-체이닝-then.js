@@ -13,8 +13,15 @@ function returnFive() {
   return Promise.resolve(5);
 }
 
+
 // TODO: getValueThenDouble 함수를 작성하세요.
-async function getValueThenDouble() {}
+async function getValueThenDouble() {
+  return returnFive().then(function(prev){
+    return new Promise(resolve =>{
+      resolve(prev*2)
+    })
+  } )
+}
 
 // export를 수정하지 마세요.
 export { getValueThenDouble };

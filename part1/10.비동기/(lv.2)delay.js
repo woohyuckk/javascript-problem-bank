@@ -8,9 +8,20 @@
  * @returns {Promise<string>} "done"
  */
 
-function delay(ms) {
-  // TODO: delay 함수를 작성하세요.
-}
+// function delay(ms) {
+//   setTimeout(function(){
+//     return new Promise(resolve => {
+//       resolve('done')
+//     })
+//   },ms)
+// }
 
+function delay(ms) {
+  return new Promise (resolve=>{
+    setTimeout( ()=> {
+      resolve('done');
+    },ms)
+  })
+}
 // export를 수정하지 마세요.
 export { delay };

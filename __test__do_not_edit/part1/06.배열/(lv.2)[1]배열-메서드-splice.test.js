@@ -1,4 +1,4 @@
-import { removeAndInsert } from "../../../part1/06.배열/(lv.2)배열-메서드-splice.js";
+import { removeAndInsert } from "../../../part1/06.배열/(lv.2)[1]배열-메서드-splice.js";
 import { jest } from "@jest/globals";
 
 describe("(lv.2)배열-메서드-splice.js 테스트", () => {
