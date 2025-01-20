@@ -16,12 +16,22 @@
 let topKeywordsCache = [];
 
 function updateTopKeywords(keywords) {
-  // TODO
+
+  const countKeywords = keywords.reduce((acc, keyword) => {
+    acc[keyword] = (acc[keyword] || 0) + 1;
+    return acc
+  }, {})
+  // acc의 초기값을 빈객체({})로 준 뒤 검색어 갯수 카운팅
+  const sortedKeywords = Object.entries(countKeywords)
+    .sort((a, b) => b[1] - a[1]) // 내림차 순으로 정렬
+    .map(keyword => keyword[0]) // keyword만 남기기
+
+  topKeywordsCache = sortedKeywords.slice(0, 10); // 상위 10개만 cash에 저장
 }
 
 function getTopKeywords() {
-  // TODO
-  return [];
+  // 저장된 상위 10개 키워드 반환
+  return topKeywordsCache
 }
 
 // export를 수정하지 마세요.
