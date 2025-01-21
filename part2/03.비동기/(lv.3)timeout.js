@@ -11,8 +11,28 @@
  * @returns {Promise<any>} - 제한 시간 내 완료되면 resolve, 아니면 "timeout"으로 reject
  */
 
-// TODO: timeOut 함수를 작성해주세요.
-async function timeOut(promise, ms) {}
+async function timeOut(promise, ms) {
+    return Promise.race([
+        promise,
+        new Promise((_, reject) => {
+            setTimeout(() => {
+                reject("timeout");
+            }, ms);
+        })
+    ]);
+}
+
+
+async function timeOut(promise,ms){
+    return Promise.race([
+        promise,
+        new Promise((_,reject)=>{
+            setTimeout(()=>{
+                reject("timeout")
+            },ms)
+        })
+    ])
+}
 
 // export 를 수정하지 마세요.
 export { timeOut };

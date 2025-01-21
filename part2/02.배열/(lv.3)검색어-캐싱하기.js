@@ -36,3 +36,32 @@ function getTopKeywords() {
 
 // export를 수정하지 마세요.
 export { topKeywordsCache, updateTopKeywords, getTopKeywords };
+
+
+/*
+let topKeywordsCache = [];
+
+function updateTopKeywords(keywords) {
+    // Create a frequency map of the keywords
+    const frequencyMap = keywords.reduce((acc, keyword) => {
+        acc[keyword] = (acc[keyword] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Convert the map to an array of [keyword, count] and sort by count (descending) and keyword (ascending)
+    const sortedKeywords = Object.entries(frequencyMap)
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([keyword]) => keyword);
+
+    // Take the top 10 keywords
+    topKeywordsCache = sortedKeywords.slice(0, 10);
+}
+
+function getTopKeywords() {
+    // Return the cached top keywords
+    return topKeywordsCache;
+}
+
+// export를 수정하지 마세요.
+export { topKeywordsCache, updateTopKeywords, getTopKeywords };
+*/

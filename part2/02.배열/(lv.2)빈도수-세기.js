@@ -23,6 +23,7 @@ function getFrequency(arr){
 
   const result = arr.reduce((acc,res)=>{
     acc[res] = (acc[res] || 0 )+1;
+
     return acc 
   },{})
   return result 

@@ -16,12 +16,9 @@
 
 function createUserLogger() {
     const userLogs = new Map();
-    const userLogsSet = new Set();
+    let userAction = new Set();
     function recordUserAction(userId, action){
-        
-        if(userLogsSet.has(userId))
-        userLogs.set(userId,action)
-
+        return userLogs.set(userId,userAction.add(action))
     }
 
     function getUserActions(userId){
