@@ -19,13 +19,17 @@ function fixCartReferenceIssue() {
   };
 
   // TODO: userBCart가 userACart와 독립된 복사본을 가지도록 해야 함
-  let userBCart;
+  let userBCart = structuredClone(userACart);
 
   const coupon = 5000;
 
   applyCoupon(userBCart, coupon);
   function applyCoupon(cart, discount) {
-    // TODO
+   const discountedCart =cart.items.map((element)=>{
+    return element.price -= discount
+
+   })
+   return discountedCart
   }
 
   return { userACart, userBCart };

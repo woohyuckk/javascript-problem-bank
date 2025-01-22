@@ -16,17 +16,21 @@
 
 function createUserLogger() {
     const userLogs = new Map();
-    let userAction = new Set();
     function recordUserAction(userId, action){
-        return userLogs.set(userId,userAction.add(action))
+        // 사람마다 따로 set을 만들어 주어야함
+        if(!userLogs.has(userId)){
+            userLogs.set(userId, new Set());
+        }
+        userLogs.get(userId).add(action);
     }
 
     function getUserActions(userId){
-        
+        const actions = userLogs.get(userId)
+        return actions ? Array.from(actions) : [];
     }
  
     
-    return recordUserAction,getUserActions
+    return {recordUserAction,getUserActions}
 }
 
 
