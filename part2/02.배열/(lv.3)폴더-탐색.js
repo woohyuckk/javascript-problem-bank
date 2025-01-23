@@ -18,7 +18,12 @@
  */
 
 // TODO: getAllFolderNames 함수를 작성하세요.
-function getAllFolderNames(folder) {}
+function getAllFolderNames(folder) {
+    function deepReadNames() {
+
+    }
+
+}
 
 // export 를 수정하지 마세요.
 export { getAllFolderNames };
