@@ -42,7 +42,7 @@ function getAllFolderNames(folder) {
 // 4. folderNames에 concat을 진행하는데 deepReadNames({ name: "sub1", subFolders: [] })가 실행된다
 // 5. folderNames에 sub1이 담긴다 다시 for문이 시작된다. subFolder가 빈배열이기 때문에 folderNames = "sub1"을 리턴한다.
 // 6. 다시 deepReadNames(folder)로 돌아와 return값(["sub1"])과 concat한다. 다음 subFolder  { name: "sub2", subFolders: [ { name: "sub2_1", subFolders: [] } ] }를 순회한다.
-// 7. folderNames = ["sub2"]가 담기고 subfolders에  for문이 순회하여 ["sub2","sub2_1"]이 concat된다. return되어 folder의 ["sub","sub1",["sub2","sub2_1"]]이 된다.
+// 7. folderNames = ["sub2"]가 담기고 subfolders에  for문이 순회하여 ["sub2","sub2_1"]이 concat된다. return되어 folder의 ["sub","sub1","sub2","sub2_1"]이 된다.
 
 // export 를 수정하지 마세요.
 export { getAllFolderNames };

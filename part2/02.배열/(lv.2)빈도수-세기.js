@@ -19,22 +19,14 @@
 //     return result
 // }
 
-function getFrequency(arr){
 
-  const result = arr.reduce((acc,res)=>{
-    acc[res] = (acc[res] || 0 )+1;
-
-    return acc 
-  },{})
-  return result 
-}
 function getFrequency(arr) {
     const map = new Map();
-  
+
     arr.forEach((item) => {
       map.set(item, (map.get(item) || 0) + 1);
     });
-  
+
     // Map을 일반 객체로 변환
     return Object.fromEntries(map);
   }

@@ -31,7 +31,17 @@
  */
 
 //TODO: 2차원 배열을 90도 회전한 새로운 배열을 반환하는 함수를 작성하세요.
-function rotateMatrix(matrix) {}
+function rotateMatrix(matrix) {
+    const n = matrix.length;
+    if(!n){
+        return matrix
+    }
+    // 새로운 배열 생성 없이 map으로 회전된 배열 반환
+    return matrix[0].map((_, colIndex) =>
+      matrix.map((row) => row[colIndex]).reverse()
+    );
+  }
+  
+  // export 를 수정하지 마세요.
+  export { rotateMatrix };
 
-// export 를 수정하지 마세요.
-export { rotateMatrix };
