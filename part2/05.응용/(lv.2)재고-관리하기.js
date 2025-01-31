@@ -15,7 +15,31 @@ const inventory = [
   { id: 200, name: "Mouse", stock: 5 },
 ];
 
-function addProduct(newItem) {}
+function addProduct(newItem) {
+
+  const isDuplicatedItem = inventory.find((item) => 
+     item.id === newItem.id
+  )
+
+  // 중복이 없으면
+  if (!isDuplicatedItem) {
+    return inventory.push(newItem)
+  }
+
+  // Item udapte
+  const updatedInventory = inventory.map((item) => {
+    if (item.id === newItem.id) {
+      return item.stock += newItem.stock
+    }
+    return item
+
+  })
+
+  return updatedInventory
+
+
+
+}
 
 // export를 수정하지 마세요.
 export { inventory, addProduct };
