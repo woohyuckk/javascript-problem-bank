@@ -13,7 +13,41 @@
  * @returns {boolean}
  */
 
-function checkAccess(user, requiredRole) {}
+function checkAccess(user, requiredRole) {
+    
+    let { role } = user;
+    
+
+    switch (role) {
+        case "user":
+            role = 1
+            break;
+        case "manager":
+            role = 2
+            break;
+        case "admin":
+            role = 3
+            
+    }
+
+    switch (requiredRole) {
+        case "user":
+            requiredRole = 1
+            break;
+        case "manager":
+            requiredRole = 2
+            break;
+        case "admin":
+            requiredRole = 3
+            
+    }
+    if (role >= requiredRole) {
+        return true
+    } 
+        return false
+
+
+}
 
 // export를 수정하지 마세요.
 export { checkAccess };

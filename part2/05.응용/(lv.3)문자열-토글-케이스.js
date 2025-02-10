@@ -11,6 +11,23 @@
 
 // TODO: 함수를 작성하세요 (예: toggleCase)
 function toggleCase(str) {
+
+  let toggleStr = str.split("").map((char) => {
+    let upperChar = char.toUpperCase();
+    let lowerChar = char.toLowerCase();
+
+    if (char === upperChar) {
+      return lowerChar
+    }
+    if (char === lowerChar) {
+      return upperChar
+    }
+    return char
+  })
+
+  return toggleStr.join("")
+
+
   // TODO
 }
 

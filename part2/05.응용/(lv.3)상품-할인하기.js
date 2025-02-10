@@ -13,7 +13,26 @@
  * @returns {number}
  */
 
-function calculateDiscount(price, coupon) {}
+function calculateDiscount(price, coupon) {
+    if (!coupon) {
+        return price
+    }
+
+    const checkCoupon =  {
+            percent: price * (1 - coupon.rate),
+            fixed: price - coupon.amount,
+        }
+    
+    const totalPrice = checkCoupon[coupon.type]
+    // totalPrice가 음수이면 0원
+    if (totalPrice < 0) {
+        return 0
+    }
+
+    return totalPrice || price
+
+
+}
 
 // export 를 수정하지 마세요.
 export { calculateDiscount };

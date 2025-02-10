@@ -22,7 +22,35 @@
  */
 
 // TODO: asyncDataMerger 함수를 작성하세요.
-async function asyncDataMerger(...asyncFunctions) {}
+async function asyncDataMerger(...asyncFunctions) {
+    // 1) 모든 비동기 함수를 병렬로 실행
+    const results = await Promise.all(asyncFunctions.map(fn => fn()));
+    // results는 예: [
+    //   [ { id:1, name:'Alice'}, { id:2, age:20 } ],
+    //   [ { id:1, age:25 }, { id:3, gender:'F'} ],
+    //   ...
+    // ]
+  
+    // 2) id -> 객체 형태로 저장할 Map(혹은 plain object) 생성
+    const merged = {};
+  
+    // 3) 함수 결과들을 순서대로 순회하여 병합
+    for (const arr of results) {
+      for (const item of arr) {
+        const { id } = item;
+        // 기존에 id가 없으면 새로 생성
+        if (!merged[id]) {
+          merged[id] = {};
+        }
+        // "나중에 들어온 데이터"로 덮어씌움
+        merged[id] = { ...merged[id], ...item };
+      }
+    }
+  
+    // 4) Object.values로 객체를 배열로 바꾸고, id 오름차순 정렬
+    const finalArray = Object.values(merged).sort((a, b) => a.id - b.id);
+    return finalArray;
+  }
 
 // export를 수정하지 마세요.
 export { asyncDataMerger };
