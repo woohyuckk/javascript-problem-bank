@@ -36,6 +36,19 @@
  * @returns {Array}
  */
 
-function filterComplexData(data, conditions) {}
+function filterComplexData(data, conditions) {
+    const condition = Object.keys(conditions);
+    
+
+    const filteredData = data.filter((user) => {
+
+        for (let key of condition) {              
+                    user.condtion[key] === conditions[key]              
+                }
+
+     return user.condition[idx] === conditions.condition[idx]
+ })
+
+}
 
 export { filterComplexData };

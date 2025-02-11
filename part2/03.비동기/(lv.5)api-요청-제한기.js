@@ -27,7 +27,13 @@
  * @returns {(fn: () => Promise<any>) => Promise<any>}
  */
 
-function createRateLimiter(maxRequests, timeWindow) {}
+function createRateLimiter(maxRequests, timeWindow) {
+
+    Promise.all([])
+
+
+
+}
 
 // export 를 수정하지 마세요.
 export { createRateLimiter };

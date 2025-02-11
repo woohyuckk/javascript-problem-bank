@@ -28,7 +28,21 @@
  */
 
 // TODO: normalizeData 함수를 작성하세요.
-function normalizeData(data) {}
+function normalizeData(data) {
+
+    if (!data) {
+        return { byId: {} , allIds : []}
+    }
+
+    return data.reduce((acc, res) => {
+        {
+            acc.byId[res.id] = res;
+            acc.allIds.push(res.id)
+            return acc
+        }
+    },{ byId : {} , allIds : []})
+
+}
 
 // export를 수정하지 마세요.
 export { normalizeData };

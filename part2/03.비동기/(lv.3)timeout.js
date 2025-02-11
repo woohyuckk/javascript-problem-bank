@@ -23,16 +23,7 @@ async function timeOut(promise, ms) {
 }
 
 
-async function timeOut(promise,ms){
-    return Promise.race([
-        promise,
-        new Promise((_,reject)=>{
-            setTimeout(()=>{
-                reject("timeout")
-            },ms)
-        })
-    ])
-}
+
 
 // export 를 수정하지 마세요.
 export { timeOut };

@@ -13,23 +13,33 @@
 
 import { loginRequest } from "../../part1/10.비동기/(lv.2)로그인-확인-함수";
 
+// async function safeLogin(id, pw) {
+//     try{
+//         return await new Promise((resolve, reject)=>{
+//             if(id==="admin"&& pw==="1234"){
+//                 resolve("ok")
+//             }
+//             else{
+//                 reject("fail")
+//             }
+//         })
+
+//     }
+//     catch(error){
+//         return "error"
+
+//     }
+// }
+
+
+
 async function safeLogin(id, pw) {
-    try{
-        return await new Promise((resolve, reject)=>{
-            if(id==="admin"&& pw==="1234"){
-                resolve("ok")
-            }
-            else{
-                reject("fail")
-            }
-        })
-
+    try {
+        return await loginRequest(id,pw);
     }
-    catch(error){
+    catch (error) {
         return "error"
-
     }
 }
-
 // export를 수정하지 마세요.
 export { safeLogin };
