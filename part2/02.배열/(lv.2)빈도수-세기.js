@@ -11,14 +11,6 @@
  */
 
 // TODO: 함수를 작성하세요.
-// function getFrequency(arr) {
-//     const result = arr.reduce((acc,res)=>{
-//         acc[res] =  (acc[res] || 0)+1;
-//         return acc
-//     },{})
-//     return result
-// }
-
 
 function getFrequency(arr) {
     const map = new Map();
