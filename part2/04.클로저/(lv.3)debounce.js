@@ -10,14 +10,22 @@
  */
 
 // TODO: debounce 함수를 작성하세요.
+
+
 function debounce(func, delay) {
-    const timer = setTimeout(()=>{
-        func()
-    },delay)
-    if(!timer){
-    clearTimeout(timer)
-        return debounce(func,delay)
-    }}
+
+    let timer;
+
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func(...args);
+        }, delay)
+
+    }
+
+
+}
 
 // export 를 수정하지 마세요.
 export { debounce };

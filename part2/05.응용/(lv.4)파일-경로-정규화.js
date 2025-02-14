@@ -12,7 +12,36 @@
  * @returns {string}
  */
 
-function normalizePath(path) {}
+function normalizePath(path) {
+    const parts = path.split('/'); // '/'를 기준으로 분할
+    const stack = [];
+    let isAbsolute = path.startsWith('/'); // 절대 경로 여부 확인
+
+    for (const part of parts) {
+        if (part === '' || part === '.') {
+            continue; // 빈 문자열이나 '.'는 무시
+        }
+        if (part === '..') {
+            if (stack.length > 0 && stack[stack.length - 1] !== '..') {
+                stack.pop(); // 이전 디렉토리 제거
+            } else if (!isAbsolute) {
+                stack.push('..'); // 상대 경로일 때만 '..' 유지
+            }
+        } else {
+            stack.push(part); // 정상적인 경로 추가
+        }
+    }
+
+    let normalizedPath = stack.join('/');
+    if (isAbsolute) {
+        normalizedPath = '/' + normalizedPath;
+    }
+    if (path.endsWith('/') && normalizedPath !== '/') {
+        normalizedPath += '/'; // 마지막 '/' 유지
+    }
+
+    return normalizedPath;
+}
 
 // export 를 수정하지 마세요.
 export { normalizePath };

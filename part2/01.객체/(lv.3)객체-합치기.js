@@ -15,17 +15,9 @@
  * @param  {...object[]} objs
  * @returns {object}
  */
-
 function mergeObjects(...objs) {
 
-    let mergedObjs = {};
-
-    objs.forEach(element => {
-        mergedObjs = Object.assign(mergedObjs , element)
-
-    });
-
-    return mergedObjs
+    return Object.assign({}, ...objs)
 
 }
 

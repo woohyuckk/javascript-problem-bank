@@ -37,18 +37,42 @@
  */
 
 function filterComplexData(data, conditions) {
-    const condition = Object.keys(conditions);
-    
+    return data.filter(item => {
+        return Object.entries(conditions).every(([key, value]) => {
+            // 중첩된 키인지 확인 (예: "info.active")
+            const keys = key.split(".");
+            let target = item;
 
-    const filteredData = data.filter((user) => {
+            // 중첩된 키 탐색
+            for (const k of keys) {
+                if (target[k] === undefined) return false;
+                target = target[k];
+            }
 
-        for (let key of condition) {              
-                    user.condtion[key] === conditions[key]              
-                }
+            // 배열일 경우 해당 값을 포함하는지 확인
+            if (Array.isArray(target)) {
+                return target.includes(value);
+            }
 
-     return user.condition[idx] === conditions.condition[idx]
- })
-
+            // 일반 값 비교
+            return target === value;
+        });
+    });
 }
 
+/* 
+1. 데이터가 배열인데 조건에 맞는 요소를 그대로 return 해야하네? 
+- filter를 사용할 준비
+2. 두번째로 받은 인자는 객체 데이터네?
+- key를 사용해서 data와 비교해야 하네? keys 사용까지 생각
+- key의 value 값이 일치하는지 검사해야 하네? enetries까지 생각 
+3. key가 중첩프로퍼티일 수도 있다? 그럼 key를 split으로 나눠야 겠다.
+4. split으로 나눈 keys 배열은 중첩프로퍼티를 순서대로 나누니까 data를 keys의 인덱스 순서대로 순회하면 되겠다
+5. 배열이니까 for of로 순회하자
+6. target[k]  === undefined면 return false-> 해당 요소 패스, 있으면 새로운 target 변경 (깊숙히 탐색)
+7. 근데 밸류가 배열인 값이 있네? includes메서드를 이용해 value 값을 가지고 있는지 확인
+8. 그냥 원시값이면 value값과 비교해서 참이면 반환 
+*/
+
 export { filterComplexData };
+  

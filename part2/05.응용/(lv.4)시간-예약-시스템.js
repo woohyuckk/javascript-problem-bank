@@ -24,7 +24,48 @@
  */
 
 // TODO: scheduleNextAvailableTime 함수를 작성하세요.
-function scheduleNextAvailableTime(reservations, timeLength) {}
+
+function scheduleNextAvailableTime(reservations, timeLength) {
+    // 배열이 아닌것과 배열의 길이가 0 이면 0을 반환
+    if (!Array.isArray(reservations) || reservations.length === 0) {
+        return 0
+    }
+    // 시간 순서 대로 정렬 -> 예약의 end와 다음 예약의 start간에 time 여유를 배열로 정리
+    reservations.sort((a, b) => a.start - b.start)
+
+    let previousEnd = reservations[0].end
+    //  이전 end와 다음 start간의 여유가 timeLength보다 길면 previousEnd반환
+    for (let i = 1; i < reservations.length; i++) {
+        let nextStart = reservations[i].start
+
+        if (nextStart - previousEnd >= timeLength) {
+            return previousEnd
+        }
+        previousEnd = Math.max(previousEnd, reservations[i].end)
+    }
+
+    return previousEnd
+}
 
 // export 를 수정하지 마세요.
 export { scheduleNextAvailableTime };
+
+
+
+/*
+1. reservations의 형태는 배열 [{start:10, end:12}] 와 같은 형태로 이루어져있다.
+2. timeLength 만큼 예약이 가능한 가장 빠른 시간을 찾아야한다.
+예약된 시간은 정렬되어 있다고 가정되지 않으므로 정렬이 필요할 수 있다.
+- 가능한 시간 슬롯을 찾는 규칙 
+- 첫번째 예약의 start 이전시간은 고려하지 않는다.
+- 각 예약의 end와 다음 예약의 start 시간 사이에 timeLangth가 들어갈 수 있는지 확인
+- 모든 간격사이에 들어갈 곳이 없으면 마지막 endTime 반환
+
+
+생각 못했던것들
+1. 시간순서대로 일단 정렬해서 생각
+2. 이전시간과 다음시간을 변수로 만들어서 계산할 생각하지 못했음. map함수를 이용해 idx로 reservations[idx+1]과 같이
+nextStart를 그냥 배열에 있는 그대로를 사용하려고 하니 어려웠다.
+3. 예외처리 Math.max는 혹시모를 예약이 겹치는 경우를 대비해 그나마 마지막 end시간을  적음 
+*/
+
